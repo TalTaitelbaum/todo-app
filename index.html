@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Todos</h1>
+    <input type="text" id="search-text" placeholder="Filter todos" />
+    <label>
+      <input type="checkbox" id="hide-complited" /> Hide completed
+    </label>
+    <div id="todos"></div>
+    <form id="new-todo" action="">
+      <input type="text" placeholder="Something to do" name="text" />
+      <button>Add todo</button>
+    </form>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuidv4.min.js"></script>
+    <script src="./todos-functios.js"></script>
+    <script src="./todo-app.js"></script>
+  </body>
+</html>
