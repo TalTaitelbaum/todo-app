@@ -26,7 +26,7 @@ const renderTodos = function (todos, filters) {
 
   //line of the incomplete todos
   const incompleteTodos = filteredTodos.filter(function (todo) {
-    return !todo.complited;
+    return !todo.completed;
   });
 
   //delets all the duplicatess searchText
@@ -71,18 +71,7 @@ const generateTodoDOM = function (todo) {
     });
 
     if (todoIndex > -1) {
-      todos.splice(todoIndex, 1);
-    }
-  };
-
-  //Toggle the completed value for a given todos
-  const toggleTodo = function (id) {
-    const todo = todos.find(function (todo) {
-      return todo.id === id;
-    });
-
-    if (todo !== undefined) {
-      todo.complited = !todo.complited;
+      todo.splice(todoIndex, 1);
     }
   };
 
@@ -96,6 +85,16 @@ const generateTodoDOM = function (todo) {
   });
 
   return todoEL;
+};
+//Toggle the completed value for a given todos
+const toggleTodo = function (id) {
+  const todo = todos.find(function (todo) {
+    return todo.id === id;
+  });
+
+  if (todo !== undefined) {
+    todo.completed = !todo.completed;
+  }
 };
 
 //Get the DOM elements for list summary
