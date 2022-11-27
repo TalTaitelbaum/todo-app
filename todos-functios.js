@@ -84,17 +84,18 @@ const generateTodoDOM = function (todo) {
     renderTodos(todos, filters);
   });
 
-  return todoEL;
-};
-//Toggle the completed value for a given todos
-const toggleTodo = function (id) {
-  const todo = todos.find(function (todo) {
-    return todo.id === id;
-  });
+  //Toggle the completed value for a given todos
+  const toggleTodo = function (id) {
+    const todo = todos.find(function (todo) {
+      return todo.id === id;
+    });
 
-  if (todo !== undefined) {
-    todo.completed = !todo.completed;
-  }
+    if (todo !== undefined) {
+      todo.completed = !todo.completed;
+    }
+  };
+
+  return todoEL;
 };
 
 //Get the DOM elements for list summary
