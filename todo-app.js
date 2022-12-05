@@ -21,14 +21,14 @@ document.querySelector("#new-todo").addEventListener("submit", (e) => {
     completed: false,
   });
 
-  saveToDos(todos);
+  saveTodos(todos);
   renderTodos(todos, filters);
 
   //delets the neww text from the new todo input
   e.target.elements.text.value = "";
 });
 
-document.querySelector("#hide-complited").addEventListener("change", (e) => {
+document.querySelector("#hide-completed").addEventListener("change", (e) => {
   console.log(e.target.checked);
   filters.hideCompleted = e.target.checked;
 
