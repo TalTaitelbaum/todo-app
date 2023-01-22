@@ -1,5 +1,6 @@
 "use strict";
-const todos = getSavedTodos();
+
+let todos = getSavedTodos();
 
 const filters = {
   searchText: "",
@@ -15,23 +16,24 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
 });
 
 document.querySelector("#new-todo").addEventListener("submit", (e) => {
+  const text = e.target.elements.text.value.trim();
   e.preventDefault();
-  todos.push({
-    id: uuidv4(),
-    text: e.target.elements.text.value,
-    completed: false,
-  });
 
-  saveTodos(todos);
-  renderTodos(todos, filters);
+  if (text.length > 0) {
+    todos.push({
+      id: uuidv4(),
+      text,
+      completed: false,
+    });
+    saveTodos(todos);
+    renderTodos(todos, filters);
 
-  //delets the neww text from the new todo input
-  e.target.elements.text.value = "";
+    //delets the neww text from the new todo input
+    e.target.elements.text.value = "";
+  }
 });
 
 document.querySelector("#hide-completed").addEventListener("change", (e) => {
-  console.log(e.target.checked);
   filters.hideCompleted = e.target.checked;
-
   renderTodos(todos, filters);
 });
